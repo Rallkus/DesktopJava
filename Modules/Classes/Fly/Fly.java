@@ -1,24 +1,49 @@
 package Framework.Modules.Classes.Fly;
 
+import java.util.ArrayList;
+
 import Framework.Classes.Fecha;
 
 public abstract class Fly {
+	private String id;
+	private String arrivePlace;
+	private String departurePlace;
 	private Fecha departureTime;
 	private Fecha arriveTime;
-	private String departurePlace;
-	private String arrivePlace;
+	private int capacity;
+	private ArrayList<String> responsable;
+	private String company;
 	private float price;
-	private int numberOfPassengers;
-	
-	public Fly(Fecha departureTime, Fecha arriveTime, String departurePlace, String arrivePlace, float price,
-			int numberOfPassengers) {
+	public Fly(String id, String arrivePlace, String departurePlace, Fecha departureTime, Fecha arriveTime,
+			int capacity, ArrayList<String> responsable, String company, float price) {
 		super();
+		this.id = id;
+		this.arrivePlace = arrivePlace;
+		this.departurePlace = departurePlace;
 		this.departureTime = departureTime;
 		this.arriveTime = arriveTime;
-		this.departurePlace = departurePlace;
-		this.arrivePlace = arrivePlace;
+		this.capacity = capacity;
+		this.responsable = responsable;
+		this.company = company;
 		this.price = price;
-		this.numberOfPassengers = numberOfPassengers;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getArrivePlace() {
+		return arrivePlace;
+	}
+	public void setArrivePlace(String arrivePlace) {
+		this.arrivePlace = arrivePlace;
+	}
+	public String getDeparturePlace() {
+		return departurePlace;
+	}
+	public void setDeparturePlace(String departurePlace) {
+		this.departurePlace = departurePlace;
 	}
 	public Fecha getDepartureTime() {
 		return departureTime;
@@ -32,17 +57,23 @@ public abstract class Fly {
 	public void setArriveTime(Fecha arriveTime) {
 		this.arriveTime = arriveTime;
 	}
-	public String getDeparturePlace() {
-		return departurePlace;
+	public int getCapacity() {
+		return capacity;
 	}
-	public void setDeparturePlace(String departurePlace) {
-		this.departurePlace = departurePlace;
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
-	public String getArrivePlace() {
-		return arrivePlace;
+	public ArrayList<String> getResponsable() {
+		return responsable;
 	}
-	public void setArrivePlace(String arrivePlace) {
-		this.arrivePlace = arrivePlace;
+	public void setResponsable(ArrayList<String> responsable) {
+		this.responsable = responsable;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	public float getPrice() {
 		return price;
@@ -50,11 +81,9 @@ public abstract class Fly {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public int getNumberOfPassengers() {
-		return numberOfPassengers;
-	}
-	public void setNumberOfPassengers(int numberOfPassengers) {
-		this.numberOfPassengers = numberOfPassengers;
-	}
+	public abstract String toString();
+
+	
+	
 	
 }
