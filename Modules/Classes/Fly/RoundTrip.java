@@ -5,26 +5,26 @@ import java.util.ArrayList;
 import Framework.Classes.Fecha;
 
 public class RoundTrip extends Fly{
-	private int hourDifference;
-	private Fecha returnHour;
+	private int dayDifference;
+	private Fecha returnDay;
 	public RoundTrip(String id, String arrivePlace, String departurePlace, Fecha departureTime, Fecha arriveTime,
-			int capacity, String responsable, String company, float price, int hourDifference,
-			Fecha returnHour) {
+			int capacity, String responsable, String company, float price, int dayDifference,
+			Fecha returnDay) {
 		super(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable, company, price);
-		this.hourDifference = hourDifference;
-		this.returnHour = returnHour;
+		this.dayDifference = dayDifference;
+		this.returnDay = returnDay;
 	}
-	public int getHourDifference() {
-		return hourDifference;
+	public int getDayDifference() {
+		return dayDifference;
 	}
-	public void setHourDifference(int hourDifference) {
-		this.hourDifference = hourDifference;
+	public void setDayDifference(int hourDifference) {
+		this.dayDifference = hourDifference;
 	}
 	public Fecha getReturnHour() {
-		return returnHour;
+		return returnDay;
 	}
 	public void setReturnHour(Fecha returnHour) {
-		this.returnHour = returnHour;
+		this.returnDay = returnHour;
 	}
 	@Override
 	public String toString() {

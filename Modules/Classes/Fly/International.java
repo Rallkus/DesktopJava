@@ -7,15 +7,13 @@ import Framework.Classes.Fecha;
 public class International extends Fly {
 	private String originCountry;
 	private String arriveCountry;
-	private int hourDifference;
-	private Fecha arriveTimeDestinationCountry; //The time it is in the Country it lands
+	private Fecha arriveTimeDestinationCountry; //The day it is in the Country it lands
 	public International(String id, String arrivePlace, String departurePlace, Fecha departureTime, Fecha arriveTime,
 			int capacity, String responsable, String company, float price, String originCountry,
-			String arriveCountry, int hourDifference, Fecha arriveTimeDestinationCountry) {
+			String arriveCountry, Fecha arriveTimeDestinationCountry) {
 		super(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable, company, price);
 		this.originCountry = originCountry;
 		this.arriveCountry = arriveCountry;
-		this.hourDifference = hourDifference;
 		this.arriveTimeDestinationCountry = arriveTimeDestinationCountry;
 	}
 	public String getOriginCountry() {
@@ -29,12 +27,6 @@ public class International extends Fly {
 	}
 	public void setArriveCountry(String arriveCountry) {
 		this.arriveCountry = arriveCountry;
-	}
-	public int getHourDifference() {
-		return hourDifference;
-	}
-	public void setHourDifference(int hourDifference) {
-		this.hourDifference = hourDifference;
 	}
 	public Fecha getArriveTimeDestinationCountry() {
 		return arriveTimeDestinationCountry;

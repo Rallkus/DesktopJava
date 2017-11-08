@@ -4,6 +4,11 @@ import Framework.Classes.Fecha;
 import Framework.Utils.F;
 //TODO all the validations
 public class FunctionsFlight {
+	public static String askId(){
+		String id;
+		id=F.askString("Enter the id of the flight");
+		return id;
+	}
 	public static String askArrivePlace() {
 		String arrivePlace;
 		arrivePlace=F.askString("Enter the destination city");
@@ -45,7 +50,7 @@ public class FunctionsFlight {
 		int option;
 		do {
 			option = F.menubuttons(responsable, "What is the responsable of the flight?", "Responsable");
-		}while(option!=-1);
+		}while(option==-1);
 		return responsable[option];
 	}
 	public static String askCompany() {
@@ -53,14 +58,14 @@ public class FunctionsFlight {
 		int option;
 		do {
 			option = F.menubuttons(company, "What is the company responsable of the flight?", "Company");
-		}while(option!=-1);
+		}while(option==-1);
 		return company[option];
 	}
 	public static float askPrice() {
 		float price;
 		do {
 			price=F.askfloat("What is the price of the flight?");
-		}while(price>=0);
+		}while(price<0);
 		return price;
 	}
 	
@@ -71,7 +76,7 @@ public class FunctionsFlight {
 	}
 	public static String askLanguage() {
 		String language;
-		language=F.askString("EEnter the language of the country");
+		language=F.askString("Enter the language of the country");
 		return language;
 	}
 	
