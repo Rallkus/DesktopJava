@@ -9,7 +9,7 @@ public class National extends Fly{
 	private String language;
 	
 	public National(String id, String arrivePlace, String departurePlace, Fecha departureTime, Fecha arriveTime,
-			int capacity, ArrayList<String> responsable, String company, float price, String country, String language) {
+			int capacity, String responsable, String company, float price, String country, String language) {
 		super(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable, company, price);
 		this.country = country;
 		this.language = language;

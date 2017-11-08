@@ -11,11 +11,11 @@ public abstract class Fly {
 	private Fecha departureTime;
 	private Fecha arriveTime;
 	private int capacity;
-	private ArrayList<String> responsable;
+	private String responsable;
 	private String company;
 	private float price;
 	public Fly(String id, String arrivePlace, String departurePlace, Fecha departureTime, Fecha arriveTime,
-			int capacity, ArrayList<String> responsable, String company, float price) {
+			int capacity, String responsable, String company, float price) {
 		super();
 		this.id = id;
 		this.arrivePlace = arrivePlace;
@@ -63,10 +63,10 @@ public abstract class Fly {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-	public ArrayList<String> getResponsable() {
+	public String getResponsable() {
 		return responsable;
 	}
-	public void setResponsable(ArrayList<String> responsable) {
+	public void setResponsable(String responsable) {
 		this.responsable = responsable;
 	}
 	public String getCompany() {

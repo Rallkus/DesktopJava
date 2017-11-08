@@ -8,7 +8,7 @@ public class RoundTrip extends Fly{
 	private int hourDifference;
 	private Fecha returnHour;
 	public RoundTrip(String id, String arrivePlace, String departurePlace, Fecha departureTime, Fecha arriveTime,
-			int capacity, ArrayList<String> responsable, String company, float price, int hourDifference,
+			int capacity, String responsable, String company, float price, int hourDifference,
 			Fecha returnHour) {
 		super(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable, company, price);
 		this.hourDifference = hourDifference;

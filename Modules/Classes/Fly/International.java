@@ -10,7 +10,7 @@ public class International extends Fly {
 	private int hourDifference;
 	private Fecha arriveTimeDestinationCountry; //The time it is in the Country it lands
 	public International(String id, String arrivePlace, String departurePlace, Fecha departureTime, Fecha arriveTime,
-			int capacity, ArrayList<String> responsable, String company, float price, String originCountry,
+			int capacity, String responsable, String company, float price, String originCountry,
 			String arriveCountry, int hourDifference, Fecha arriveTimeDestinationCountry) {
 		super(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable, company, price);
 		this.originCountry = originCountry;

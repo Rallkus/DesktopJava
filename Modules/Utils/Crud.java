@@ -10,9 +10,9 @@ public class Crud {
 	}
 	public static void read(Fly a){
 		if(a==null)
-			F.print("There is no flight available", "Unexpected Error");
+			F.print("There is no flight available");
 		else
-			F.print(a.toString(), "Flight info");
+			F.print(a.toString());
 	}
 	public static Fly update(Fly a){
 		if(a==null)
