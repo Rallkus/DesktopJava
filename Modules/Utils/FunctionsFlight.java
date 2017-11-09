@@ -79,5 +79,36 @@ public class FunctionsFlight {
 		language=F.askString("Enter the language of the country");
 		return language;
 	}
+	public static String askOriginCountry() {
+		String originCountry;
+		originCountry=F.askString("Enter the country where the plane takes off");
+		return originCountry;
+	}
+	public static String askArriveCountry() {
+		String arriveCountry;
+		arriveCountry=F.askString("Enter the destination country");
+		return arriveCountry;
+	}
+	public static Fecha askArriveTimeDestinationCountry() {
+		String arriveTimeDestinationCountry;
+		arriveTimeDestinationCountry=F.askString("Enter the date of the arrive for the destination");
+		//TODO validation
+		Fecha time= new Fecha(arriveTimeDestinationCountry);
+		return time;
+	}
+	public static Fecha askReturnDay() {
+		String returnDay;
+		returnDay=F.askString("Enter the day you return");
+		//TODO validation
+		Fecha time= new Fecha(returnDay);
+		return time;
+	}
+	public static int askDayDifference() {
+		int day=-3;
+		do {
+			day=F.askinteger("What's the day difference?");
+		}while(day<-1 || day>1);
+		return day;
+	}
 	
 }

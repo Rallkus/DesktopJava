@@ -2,12 +2,15 @@ package Framework.Modules.Utils;
 
 import Framework.Classes.Fecha;
 import Framework.Modules.Classes.Fly.Fly;
+import Framework.Modules.Classes.Fly.International;
 import Framework.Modules.Classes.Fly.National;
+import Framework.Modules.Classes.Fly.RoundTrip;
 import Framework.Utils.F;
 
 public class Crud {
 	public static Fly create() {
 		String options[] = { "National", "International", "Round trip" };
+		Fly a=null;
 		int option, capacity, dayDifference;
 		String id, arrivePlace, departurePlace, responsable, company, originCountry, arriveCountry, country, language;
 		Fecha departureTime, arriveTime, arriveTimeDestinationCountry, returnDay;
@@ -26,15 +29,22 @@ public class Crud {
 		case 0:
 			country = FunctionsFlight.askCountry();
 			language = FunctionsFlight.askLanguage();
-			Fly a = new National(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable,
+			a = new National(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable,
 					company, price, country, language);
 			return a;
 		case 1:
-			//TODO the create of an international
-			return null;
+			originCountry=FunctionsFlight.askOriginCountry();
+			arriveCountry=FunctionsFlight.askArriveCountry();
+			arriveTimeDestinationCountry=FunctionsFlight.askArriveTimeDestinationCountry();
+			a = new International(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable,
+					company, price, originCountry, arriveCountry,arriveTimeDestinationCountry);
+			return a;
 		case 2:
-			//TODO the create of a round trip
-			return null;
+			returnDay=FunctionsFlight.askReturnDay();
+			dayDifference=FunctionsFlight.askDayDifference();
+			a = new RoundTrip(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable,
+					company, price, dayDifference, returnDay);
+			return a;
 		default:
 			return null;
 		}
