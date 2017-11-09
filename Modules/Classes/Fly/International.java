@@ -36,9 +36,16 @@ public class International extends Fly {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "International [originCountry=" + originCountry + ", arriveCountry=" + arriveCountry
+				+ ", arriveTimeDestinationCountry=" + arriveTimeDestinationCountry + ", getOriginCountry()="
+				+ getOriginCountry() + ", getArriveCountry()=" + getArriveCountry()
+				+ ", getArriveTimeDestinationCountry()=" + getArriveTimeDestinationCountry() + ", getId()=" + getId()
+				+ ", getArrivePlace()=" + getArrivePlace() + ", getDeparturePlace()=" + getDeparturePlace()
+				+ ", getDepartureTime()=" + getDepartureTime() + ", getArriveTime()=" + getArriveTime()
+				+ ", getCapacity()=" + getCapacity() + ", getResponsable()=" + getResponsable() + ", getCompany()="
+				+ getCompany() + ", getPrice()=" + getPrice();
 	}
+	
 	
 	
 	

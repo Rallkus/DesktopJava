@@ -2,6 +2,7 @@ package Framework.Modules.Utils;
 
 import Framework.Classes.Fecha;
 import Framework.Utils.F;
+import Framework.Utils.Validate;
 //TODO all the validations
 public class FunctionsFlight {
 	public static String askId(){
@@ -21,9 +22,14 @@ public class FunctionsFlight {
 	}
 	public static Fecha askArriveTime() {
 		String arriveTime;
-		arriveTime=F.askString("Enter the date of the arrive");
-		//TODO validation
-		Fecha time= new Fecha(arriveTime);
+		Fecha time;
+		boolean validate;
+		do{
+			arriveTime=F.askString("Enter the date of the arrive");
+			time= new Fecha(arriveTime);
+			validate=Validate.validateDate(time.getFecha());
+		}while(!validate);
+		
 		return time;
 	}
 	public static Fecha askDepartureTime() {

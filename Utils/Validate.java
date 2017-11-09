@@ -3,6 +3,8 @@ package Framework.Utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import Framework.Classes.Fecha;
+
 public class Validate {
 
 	private static final String plantilla_nombre = "^[a-zA-Z\\s]*$";
@@ -142,5 +144,89 @@ public class Validate {
 	public static boolean direccion(String direc) { // Valida una direccion
 		return direc.matches("[a-zA-Z1-9---]+\\.?(( |\\-)[a-zA-Z1-9---]+\\.?)*");
 	}
+	public static boolean validateDate(String a) {
+		int dia;
+		int mes;
+		int anyo;
+		boolean validate = false;
+		String[] fechaArray = null;
+		try {
+			fechaArray = a.split("/");
+
+			dia = Integer.parseInt(fechaArray[0]);
+			mes = Integer.parseInt(fechaArray[1]);
+			anyo = Integer.parseInt(fechaArray[2]);
+		} catch (Exception e) {
+			F.print("hola");
+			return false;
+		}
+
+		if ((anyo > 1950) && (anyo < 2016)) {
+			if ((mes >= 1) && (mes <= 12)) {
+				switch (mes) {
+				case 1: // Enero
+					if ((dia > 0) && (dia <= 31))
+						validate = true;
+					break;
+				case 2: // Febrero
+
+					if ((((anyo % 100 == 0) && (anyo % 400 == 0)) || ((anyo % 100 != 0) && (anyo % 4 == 0)))
+							&& (dia > 0) && (dia <= 29))
+						validate = true; // Ao Bisiesto
+					else if ((dia > 0) && (dia <= 28))
+						validate = true;
+					break;
+				case 3: // Marzo
+					if ((dia > 0) && (dia <= 31))
+						validate = true;
+					break;
+				case 4: // Abril
+					if ((dia > 0) && (dia <= 30))
+						validate = true;
+					break;
+				case 5: // Mayo
+					if ((dia > 0) && (dia <= 31))
+						validate = true;
+					break;
+				case 6: // Junio
+					if ((dia > 0) && (dia <= 30))
+						validate = true;
+					break;
+				case 7: // Julio
+					if ((dia > 0) && (dia <= 31))
+						validate = true;
+					break;
+				case 8: // Agosto
+					if ((dia > 0) && (dia <= 31))
+						validate = true;
+					break;
+				case 9: // Septiembre
+					if ((dia > 0) && (dia <= 30))
+						validate = true;
+					break;
+				case 10: // Octubre
+					if ((dia > 0) && (dia <= 31))
+						validate = true;
+					break;
+				case 11: // Noviembre
+					if ((dia > 0) && (dia <= 30))
+						validate = true;
+					break;
+				case 12: // Diciembre
+
+					if ((dia > 0) && (dia <= 31))
+						validate = true;
+					break;
+
+				default:
+					validate = false;
+				}
+			} else
+				validate = false;
+		} else
+			validate = false;
+		return validate;
+	}
+
 
 }

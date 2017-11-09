@@ -28,9 +28,14 @@ public class National extends Fly{
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "National [country=" + country + ", language=" + language + ", getCountry()=" + getCountry()
+				+ ", getLanguage()=" + getLanguage() + ", getId()=" + getId() + ", getArrivePlace()=" + getArrivePlace()
+				+ ", getDeparturePlace()=" + getDeparturePlace() + ", getDepartureTime()=" + getDepartureTime()
+				+ ", getArriveTime()=" + getArriveTime() + ", getCapacity()=" + getCapacity() + ", getResponsable()="
+				+ getResponsable() + ", getCompany()=" + getCompany() + ", getPrice()=" + getPrice()+"]";
 	}
+	
+	
 	
 	
 }

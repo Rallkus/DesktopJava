@@ -28,9 +28,14 @@ public class RoundTrip extends Fly{
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "RoundTrip [dayDifference=" + dayDifference + ", returnDay=" + returnDay + ", getDayDifference()="
+				+ getDayDifference() + ", getReturnHour()=" + getReturnHour() + ", getId()=" + getId()
+				+ ", getArrivePlace()=" + getArrivePlace() + ", getDeparturePlace()=" + getDeparturePlace()
+				+ ", getDepartureTime()=" + getDepartureTime() + ", getArriveTime()=" + getArriveTime()
+				+ ", getCapacity()=" + getCapacity() + ", getResponsable()=" + getResponsable() + ", getCompany()="
+				+ getCompany() + ", getPrice()=" + getPrice() + "]";
 	}
+	
 	
 
 }
