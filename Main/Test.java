@@ -6,6 +6,7 @@ import Framework.Utils.F;
 
 public class Test {
 	public static void main(String args[]){
+		Fecha b=new Fecha("3/1/2020");
 		do{
 			Fecha a=FunctionsFlight.askArriveTime();
 			F.print("Success");

@@ -16,7 +16,6 @@ public class F {
 
 	public static String askString(String message) {
 		String string = "";
-		boolean a = false;
 
 		do {
 			try {

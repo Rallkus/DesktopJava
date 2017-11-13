@@ -13,9 +13,6 @@ public class Main {
 		do{
 			option = F.menubuttons(options, "What do you want to do?", "Options");
 			switch(option){
-			case -1:
-				System.exit(0);
-				break;
 			case 0:
 				a=Crud.create();
 				break;
@@ -28,6 +25,8 @@ public class Main {
 			case 3:
 				a=Crud.delete(a);
 				break;
+			default:
+				System.exit(0);
 			}
 		}while(true);
 	}

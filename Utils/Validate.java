@@ -144,89 +144,86 @@ public class Validate {
 	public static boolean direccion(String direc) { // Valida una direccion
 		return direc.matches("[a-zA-Z1-9---]+\\.?(( |\\-)[a-zA-Z1-9---]+\\.?)*");
 	}
-	public static boolean validateDate(String a) {
-		int dia;
-		int mes;
-		int anyo;
+
+	public static boolean validateDate(Fecha a) {
+		int day;
+		int month;
+		int year;
 		boolean validate = false;
 		String[] fechaArray = null;
 		try {
-			fechaArray = a.split("/");
+			fechaArray = a.getFecha().split("/");
 
-			dia = Integer.parseInt(fechaArray[0]);
-			mes = Integer.parseInt(fechaArray[1]);
-			anyo = Integer.parseInt(fechaArray[2]);
+			day = Integer.parseInt(fechaArray[0]);
+			month = Integer.parseInt(fechaArray[1]);
+			year = Integer.parseInt(fechaArray[2]);
 		} catch (Exception e) {
-			F.print("hola");
 			return false;
 		}
 
-		if ((anyo > 1950) && (anyo < 2016)) {
-			if ((mes >= 1) && (mes <= 12)) {
-				switch (mes) {
-				case 1: // Enero
-					if ((dia > 0) && (dia <= 31))
-						validate = true;
-					break;
-				case 2: // Febrero
+		if ((month >= 1) && (month <= 12)) {
+			switch (month) {
+			case 1: // Enero
+				if ((day > 0) && (day <= 31))
+					validate = true;
+				break;
+			case 2: // Febrero
 
-					if ((((anyo % 100 == 0) && (anyo % 400 == 0)) || ((anyo % 100 != 0) && (anyo % 4 == 0)))
-							&& (dia > 0) && (dia <= 29))
-						validate = true; // Ao Bisiesto
-					else if ((dia > 0) && (dia <= 28))
-						validate = true;
-					break;
-				case 3: // Marzo
-					if ((dia > 0) && (dia <= 31))
-						validate = true;
-					break;
-				case 4: // Abril
-					if ((dia > 0) && (dia <= 30))
-						validate = true;
-					break;
-				case 5: // Mayo
-					if ((dia > 0) && (dia <= 31))
-						validate = true;
-					break;
-				case 6: // Junio
-					if ((dia > 0) && (dia <= 30))
-						validate = true;
-					break;
-				case 7: // Julio
-					if ((dia > 0) && (dia <= 31))
-						validate = true;
-					break;
-				case 8: // Agosto
-					if ((dia > 0) && (dia <= 31))
-						validate = true;
-					break;
-				case 9: // Septiembre
-					if ((dia > 0) && (dia <= 30))
-						validate = true;
-					break;
-				case 10: // Octubre
-					if ((dia > 0) && (dia <= 31))
-						validate = true;
-					break;
-				case 11: // Noviembre
-					if ((dia > 0) && (dia <= 30))
-						validate = true;
-					break;
-				case 12: // Diciembre
+				if ((((year % 100 == 0) && (year % 400 == 0)) || ((year % 100 != 0) && (year % 4 == 0))) && (day > 0)
+						&& (day <= 29))
+					validate = true; // Ao Bisiesto
+				else if ((day > 0) && (day <= 28))
+					validate = true;
+				break;
+			case 3: // Marzo
+				if ((day > 0) && (day <= 31))
+					validate = true;
+				break;
+			case 4: // Abril
+				if ((day > 0) && (day <= 30))
+					validate = true;
+				break;
+			case 5: // Mayo
+				if ((day > 0) && (day <= 31))
+					validate = true;
+				break;
+			case 6: // Junio
+				if ((day > 0) && (day <= 30))
+					validate = true;
+				break;
+			case 7: // Julio
+				if ((day > 0) && (day <= 31))
+					validate = true;
+				break;
+			case 8: // Agosto
+				if ((day > 0) && (day <= 31))
+					validate = true;
+				break;
+			case 9: // Septiembre
+				if ((day > 0) && (day <= 30))
+					validate = true;
+				break;
+			case 10: // Octubre
+				if ((day > 0) && (day <= 31))
+					validate = true;
+				break;
+			case 11: // Noviembre
+				if ((day > 0) && (day <= 30))
+					validate = true;
+				break;
+			case 12: // Diciembre
+				if ((day > 0) && (day <= 31))
+					validate = true;
+				break;
 
-					if ((dia > 0) && (dia <= 31))
-						validate = true;
-					break;
-
-				default:
-					validate = false;
-				}
-			} else
-				validate = false;
-		} else
-			validate = false;
-		return validate;
+			default:
+				return false;
+			}
+		}
+		if (validate && (a.compareDateSystem() == 1)) {
+			return true;
+		}
+		return false;
 	}
-
 
 }

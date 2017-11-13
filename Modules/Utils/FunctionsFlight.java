@@ -27,7 +27,7 @@ public class FunctionsFlight {
 		do{
 			arriveTime=F.askString("Enter the date of the arrive");
 			time= new Fecha(arriveTime);
-			validate=Validate.validateDate(time.getFecha());
+			validate=Validate.validateDate(time);
 		}while(!validate);
 		
 		return time;
