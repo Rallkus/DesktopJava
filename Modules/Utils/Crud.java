@@ -18,10 +18,10 @@ public class Crud {
 
 		option = F.menubuttons(options, "What kind of flight do you want to create?", "");
 		id = FunctionsFlight.askId();
-		arrivePlace = FunctionsFlight.askArrivePlace();
 		departurePlace = FunctionsFlight.askDeparturaPlace();
-		arriveTime = FunctionsFlight.askArriveTime();
+		arrivePlace = FunctionsFlight.askArrivePlace();
 		departureTime = FunctionsFlight.askDepartureTime();
+		arriveTime = FunctionsFlight.askArriveTime(departureTime);
 		capacity = FunctionsFlight.askCapacity();
 		responsable = FunctionsFlight.askResponsable();
 		company = FunctionsFlight.askCompany();
@@ -36,7 +36,7 @@ public class Crud {
 		case 1:
 			originCountry = FunctionsFlight.askOriginCountry();
 			arriveCountry = FunctionsFlight.askArriveCountry();
-			arriveTimeDestinationCountry = FunctionsFlight.askArriveTimeDestinationCountry();
+			arriveTimeDestinationCountry = FunctionsFlight.askArriveTimeDestinationCountry(arriveTime);
 			a = new International(id, arrivePlace, departurePlace, departureTime, arriveTime, capacity, responsable,
 					company, price, originCountry, arriveCountry, arriveTimeDestinationCountry);
 			return a;
@@ -79,7 +79,7 @@ public class Crud {
 				a.setDeparturePlace(FunctionsFlight.askDeparturaPlace());
 				break;
 			case 2:
-				a.setArriveTime(FunctionsFlight.askArriveTime());
+				a.setArriveTime(FunctionsFlight.askArriveTime(a.getDepartureTime()));
 				break;
 			case 3:
 				a.setDepartureTime(FunctionsFlight.askDepartureTime());
@@ -113,7 +113,7 @@ public class Crud {
 				a.setDeparturePlace(FunctionsFlight.askDeparturaPlace());
 				break;
 			case 2:
-				a.setArriveTime(FunctionsFlight.askArriveTime());
+				a.setArriveTime(FunctionsFlight.askArriveTime(a.getDepartureTime()));
 				break;
 			case 3:
 				a.setDepartureTime(FunctionsFlight.askDepartureTime());
@@ -137,12 +137,13 @@ public class Crud {
 				((International) a).setArriveCountry(FunctionsFlight.askArriveCountry());
 				break;
 			case 10:
-				((International) a).setArriveTimeDestinationCountry(FunctionsFlight.askArriveTimeDestinationCountry());
+				((International) a).setArriveTimeDestinationCountry(
+						FunctionsFlight.askArriveTimeDestinationCountry(a.getArriveTime()));
 				break;
 			default:
 				return a;
 			}
-		} else if(a instanceof RoundTrip){
+		} else if (a instanceof RoundTrip) {
 			option = F.menubuttons(modifyRoundtrip, "What do you want to update?", "Update");
 			switch (option) {
 			case 0:
@@ -152,7 +153,7 @@ public class Crud {
 				a.setDeparturePlace(FunctionsFlight.askDeparturaPlace());
 				break;
 			case 2:
-				a.setArriveTime(FunctionsFlight.askArriveTime());
+				a.setArriveTime(FunctionsFlight.askArriveTime(a.getDepartureTime()));
 				break;
 			case 3:
 				a.setDepartureTime(FunctionsFlight.askDepartureTime());

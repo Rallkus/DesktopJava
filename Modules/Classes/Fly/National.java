@@ -1,7 +1,5 @@
 package Framework.Modules.Classes.Fly;
 
-import java.util.ArrayList;
-
 import Framework.Classes.Fecha;
 
 public class National extends Fly{
@@ -28,11 +26,7 @@ public class National extends Fly{
 	}
 	@Override
 	public String toString() {
-		return "National [country=" + country + ", language=" + language + ", getCountry()=" + getCountry()
-				+ ", getLanguage()=" + getLanguage() + ", getId()=" + getId() + ", getArrivePlace()=" + getArrivePlace()
-				+ ", getDeparturePlace()=" + getDeparturePlace() + ", getDepartureTime()=" + getDepartureTime()
-				+ ", getArriveTime()=" + getArriveTime() + ", getCapacity()=" + getCapacity() + ", getResponsable()="
-				+ getResponsable() + ", getCompany()=" + getCompany() + ", getPrice()=" + getPrice()+"]";
+		return getDepartureTime().getFecha();
 	}
 	
 	

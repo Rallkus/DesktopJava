@@ -3,118 +3,158 @@ package Framework.Modules.Utils;
 import Framework.Classes.Fecha;
 import Framework.Utils.F;
 import Framework.Utils.Validate;
-//TODO all the validations
+
 public class FunctionsFlight {
-	public static String askId(){
+	public static String askId() {
 		String id;
-		id=F.askString("Enter the id of the flight");
+		id = F.askString("Enter the id of the flight");
 		return id;
 	}
+
 	public static String askArrivePlace() {
 		String arrivePlace;
-		arrivePlace=F.askString("Enter the destination city");
+		do {
+			arrivePlace = F.askString("Enter the destination city");
+		} while (!Validate.validateName(arrivePlace));
+
 		return arrivePlace;
 	}
+
 	public static String askDeparturaPlace() {
 		String departurePlace;
-		departurePlace=F.askString("Enter the city of departure");
+		do {
+			departurePlace = F.askString("Enter the city of departure");
+		} while (!Validate.validateName(departurePlace));
+
 		return departurePlace;
 	}
-	public static Fecha askArriveTime() {
+
+	public static Fecha askArriveTime(Fecha departureTime) {
 		String arriveTime;
 		Fecha time;
 		boolean validate;
-		do{
-			arriveTime=F.askString("Enter the date of the arrive");
-			time= new Fecha(arriveTime);
-			validate=Validate.validateDate(time);
-		}while(!validate);
-		
+		do {
+			arriveTime = F.askString("Enter the date of the arrive");
+			time = new Fecha(arriveTime);
+			validate = Validate.validateDate(time);
+		} while (!validate || departureTime.compareTo(time)==1);
+
 		return time;
 	}
+
 	public static Fecha askDepartureTime() {
 		String departureTime;
-		departureTime=F.askString("Enter the date of the take off");
-		//TODO validation
-		Fecha time= new Fecha(departureTime);
+		boolean validate;
+		Fecha time;
+		do{
+			departureTime = F.askString("Enter the date of the take off");
+			time=new Fecha(departureTime);
+			validate=Validate.validateDate(time);
+		}while(!validate);
 		return time;
 	}
+
 	public static int askCapacity() {
 		int capacity;
 		do {
 			capacity = F.askinteger("Introduce the capacity of the plane");
-			if(!(capacity<50 || capacity > 400)) {
+			if (!(capacity < 50 || capacity > 400)) {
 				break;
 			}
-		}while(true);
+		} while (true);
 		return capacity;
-		
+
 	}
-	
+
 	public static String askResponsable() {
-		String responsable[] = {"John", "Xavier", "Alexandra", "Harry", "Rachel"};
+		String responsable[] = { "John", "Xavier", "Alexandra", "Harry", "Rachel" };
 		int option;
 		do {
 			option = F.menubuttons(responsable, "What is the responsable of the flight?", "Responsable");
-		}while(option==-1);
+		} while (option == -1);
 		return responsable[option];
 	}
+
 	public static String askCompany() {
-		String company[] = {"Kayak", "Expedia", "Skyscanner", "Destinia", "Ryanair"};
+		String company[] = { "Kayak", "Expedia", "Skyscanner", "Destinia", "Ryanair" };
 		int option;
 		do {
 			option = F.menubuttons(company, "What is the company responsable of the flight?", "Company");
-		}while(option==-1);
+		} while (option == -1);
 		return company[option];
 	}
+
 	public static float askPrice() {
 		float price;
 		do {
-			price=F.askfloat("What is the price of the flight?");
-		}while(price<0);
+			price = F.askfloat("What is the price of the flight?");
+		} while (price < 0);
 		return price;
 	}
-	
+
 	public static String askCountry() {
 		String country;
-		country=F.askString("Enter the country");
+		do {
+			country = F.askString("Enter the country");
+		} while (!Validate.validateName(country));
+
 		return country;
 	}
+
 	public static String askLanguage() {
 		String language;
-		language=F.askString("Enter the language of the country");
+		do {
+			language = F.askString("Enter the language of the country");
+		} while (!Validate.validateName(language));
+
 		return language;
 	}
+
 	public static String askOriginCountry() {
 		String originCountry;
-		originCountry=F.askString("Enter the country where the plane takes off");
+		do {
+			originCountry = F.askString("Enter the country where the plane takes off");
+		} while (!Validate.validateName(originCountry));
+
 		return originCountry;
 	}
+
 	public static String askArriveCountry() {
 		String arriveCountry;
-		arriveCountry=F.askString("Enter the destination country");
+		do {
+			arriveCountry = F.askString("Enter the destination country");
+		} while (!Validate.validateName(arriveCountry));
+
 		return arriveCountry;
 	}
-	public static Fecha askArriveTimeDestinationCountry() {
+
+	public static Fecha askArriveTimeDestinationCountry(Fecha arriveTime) {
 		String arriveTimeDestinationCountry;
-		arriveTimeDestinationCountry=F.askString("Enter the date of the arrive for the destination");
-		//TODO validation
-		Fecha time= new Fecha(arriveTimeDestinationCountry);
+		arriveTimeDestinationCountry = F.askString("Enter the date of the arrive for the destination");
+		Fecha time;
+		boolean validate;
+		do {
+			arriveTimeDestinationCountry = F.askString("Enter the date of the arrive");
+			time = new Fecha(arriveTimeDestinationCountry);
+			validate = Validate.validateDate(time);
+		} while (!validate);
 		return time;
 	}
+
 	public static Fecha askReturnDay() {
 		String returnDay;
-		returnDay=F.askString("Enter the day you return");
-		//TODO validation
-		Fecha time= new Fecha(returnDay);
+		returnDay = F.askString("Enter the day you return");
+		// TODO validation
+		Fecha time = new Fecha(returnDay);
 		return time;
 	}
+
 	public static int askDayDifference() {
-		int day=-3;
+		int day = -3;
 		do {
-			day=F.askinteger("What's the day difference?");
-		}while(day<-1 || day>1);
+			day = F.askinteger("What's the day difference?");
+		} while (day < -1 || day > 1);
 		return day;
 	}
-	
+
 }
