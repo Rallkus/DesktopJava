@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import Framework.Utils.F;
-
 public class Fecha {
 	private String fecha;
 
