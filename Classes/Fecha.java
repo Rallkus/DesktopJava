@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import Framework.Utils.F;
+
 public class Fecha {
 	private String fecha;
 
@@ -58,10 +60,60 @@ public class Fecha {
 
 	}
 
-	public int compareTo(Fecha date2) {
-		Long dateLong1 = this.string2Calen().getTimeInMillis();
-		Long dateLong2 = date2.string2Calen().getTimeInMillis();
-		return dateLong1.compareTo(dateLong2);
+	public Calendar deStringtoCalendar() {
+		Calendar fecha = Calendar.getInstance();
+		java.util.Date fecha2 = null;
+		try {
+
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+			fecha2 = sdf.parse(this.fecha);
+			fecha.setTime(fecha2);
+		} catch (Exception e) {
+			return fecha;
+		}
+		return fecha;
+	}
+
+	public int compareTo(Fecha fecha_2) {
+
+		// si fecha1 igual retorna 1
+		Calendar fecha = this.deStringtoCalendar();
+		Calendar fecha_1 = fecha_2.deStringtoCalendar();
+
+		if (fecha.before(fecha_1))
+			return 1;
+		else if (fecha.after(fecha_1))
+			return -1;
+		else
+			return 0; // IGUAL
+	}
+
+	public int compareTo2(Fecha date2) {
+		// Long dateLong1 = this.string2Calen().getTimeInMillis();
+		// Long dateLong2 = date2.string2Calen().getTimeInMillis();
+		// return dateLong1.compareTo(dateLong2);
+		String fechaArray[] = getFecha().split("/");
+		int year = Integer.parseInt(fechaArray[2]);
+		int month = Integer.parseInt(fechaArray[1]);
+		int day = Integer.parseInt(fechaArray[0]);
+		String fechaArray2[] = date2.getFecha().split("/");
+		int year2 = Integer.parseInt(fechaArray2[2]);
+		int month2 = Integer.parseInt(fechaArray2[1]);
+		int day2 = Integer.parseInt(fechaArray2[0]);
+		if (year > year2)
+			return 1;
+		else if (year < year2)
+			return -1;
+		if (month > month2)
+			return 1;
+		else if (month < month2)
+			return -1;
+		if (day > day2)
+			return 1;
+		else if (day < day2)
+			return -1;
+		else
+			return 0;
 	}
 
 	public int compareDateSystem() {

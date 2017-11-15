@@ -9,8 +9,7 @@ public class OrderDepartureTime implements Comparator <Fly>{
 
 	@Override
 	public int compare(Fly a, Fly b) {
-		F.print(a.getDepartureTime().getFecha() + " "+b.getDepartureTime().getFecha());
-		return a.getDepartureTime().compareTo(b.getDepartureTime());
+		return a.getDepartureTime().compareTo2(b.getDepartureTime());
 	}
 	
 }
