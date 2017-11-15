@@ -1,29 +1,30 @@
 package Framework.Main;
 
-import Framework.Modules.Classes.Fly.Fly;
 import Framework.Modules.Utils.Crud;
 import Framework.Utils.F;
 
 public class Main {
 
 	public static void exe(){
-		String options[] = {"Create", "Read", "Update", "Delete"};
+		String options[] = {"Create", "Read", "Update", "Delete", "Order"};
 		int option;
-		Fly a = null;
 		do{
 			option = F.menubuttons(options, "What do you want to do?", "Options");
 			switch(option){
 			case 0:
-				a=Crud.create();
+				Crud.create();
 				break;
 			case 1:
-				Crud.read(a);
+				Crud.read();
 				break;
 			case 2:
-				a=Crud.update(a);
+				Crud.update();
 				break;
 			case 3:
-				a=Crud.delete(a);
+				Crud.delete();
+				break;
+			case 4:
+				Crud.order();
 				break;
 			default:
 				System.exit(0);

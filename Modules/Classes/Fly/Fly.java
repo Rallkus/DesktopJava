@@ -2,7 +2,7 @@ package Framework.Modules.Classes.Fly;
 
 import Framework.Classes.Fecha;
 
-public abstract class Fly {
+public abstract class Fly implements Comparable<Fly>{
 	private String id;
 	private String arrivePlace;
 	private String departurePlace;

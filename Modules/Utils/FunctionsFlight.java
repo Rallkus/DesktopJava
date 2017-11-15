@@ -128,33 +128,27 @@ public class FunctionsFlight {
 		return arriveCountry;
 	}
 
-	public static Fecha askArriveTimeDestinationCountry(Fecha arriveTime) {
-		String arriveTimeDestinationCountry;
-		arriveTimeDestinationCountry = F.askString("Enter the date of the arrive for the destination");
+	public static Fecha askReturnDay(Fecha arriveTime) {
+		String returnDay;
 		Fecha time;
 		boolean validate;
 		do {
-			arriveTimeDestinationCountry = F.askString("Enter the date of the arrive");
-			time = new Fecha(arriveTimeDestinationCountry);
+			returnDay = F.askString("Enter the day you return");
+			time = new Fecha(returnDay);
 			validate = Validate.validateDate(time);
-		} while (!validate);
+		} while (!validate || arriveTime.compareTo(time)==1);
 		return time;
 	}
-
-	public static Fecha askReturnDay() {
-		String returnDay;
-		returnDay = F.askString("Enter the day you return");
-		// TODO validation
-		Fecha time = new Fecha(returnDay);
-		return time;
-	}
-
-	public static int askDayDifference() {
-		int day = -3;
+	public static Fecha askDepartureTime(Fecha arriveTime) {
+		String departureTime;
+		Fecha time;
+		boolean validate;
 		do {
-			day = F.askinteger("What's the day difference?");
-		} while (day < -1 || day > 1);
-		return day;
+			departureTime = F.askString("Enter the day you return");
+			time = new Fecha(departureTime);
+			validate = Validate.validateDate(time);
+		} while (!validate || arriveTime.compareTo(time)==-1);
+		return time;
 	}
 
 }

@@ -1,6 +1,10 @@
 package Framework.Utils;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
+import Framework.Modules.Classes.Fly.Singleton;
 
 public class F {
 	public static void print(String message) {
@@ -32,6 +36,21 @@ public class F {
 		return string;
 
 	}
+	public static String combobox(String mensdesp, String[] opciones) {
+		String op = "";
+
+		// menu desplegable
+		Object seleccion = JOptionPane.showInputDialog(null, mensdesp, "", JOptionPane.QUESTION_MESSAGE, null,
+				opciones, 0); // null para icono defecto
+
+		if (seleccion == null) {
+			op = "";
+		} else {
+			op = (String) seleccion;
+		}
+		return op;
+	}
+
 	public static int askinteger(String message) {
 		String string = "";
 		int num = 0;
@@ -65,6 +84,11 @@ public class F {
 		} while (true);
 
 		return num;
+	}
+	public static void iniSingleton() {
+		Singleton.international=new ArrayList<>();
+		Singleton.national=new ArrayList<>();
+		Singleton.roundtrip=new ArrayList<>();
 	}
 
 
