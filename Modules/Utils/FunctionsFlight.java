@@ -37,7 +37,7 @@ public class FunctionsFlight {
 			arriveTime = F.askString("Enter the date of the arrive");
 			time = new Fecha(arriveTime);
 			validate = Validate.validateDate(time);
-		} while (!validate || departureTime.compareTo(time)==1);
+		} while (!validate || departureTime.compareTo2(time)==1);
 
 		return time;
 	}
@@ -136,7 +136,7 @@ public class FunctionsFlight {
 			returnDay = F.askString("Enter the day you return");
 			time = new Fecha(returnDay);
 			validate = Validate.validateDate(time);
-		} while (!validate || arriveTime.compareTo(time)==1);
+		} while (!validate || arriveTime.compareTo2(time)==1);
 		return time;
 	}
 	public static Fecha askDepartureTime(Fecha arriveTime) {
@@ -147,7 +147,7 @@ public class FunctionsFlight {
 			departureTime = F.askString("Enter the day you return");
 			time = new Fecha(departureTime);
 			validate = Validate.validateDate(time);
-		} while (!validate || arriveTime.compareTo(time)==-1);
+		} while (!validate || arriveTime.compareTo2(time)==-1);
 		return time;
 	}
 

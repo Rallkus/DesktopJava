@@ -3,6 +3,8 @@ package Framework.Modules.Utils;
 import java.util.Collections;
 
 import Framework.Classes.Fecha;
+import Framework.Main.Main;
+import Framework.Main.MainReception;
 import Framework.Modules.Classes.Fly.International;
 import Framework.Modules.Classes.Fly.National;
 import Framework.Modules.Classes.Fly.RoundTrip;
@@ -336,7 +338,7 @@ public class Crud {
 						default:
 							break;
 						}
-						Singleton.roundtrip.set(location, a);
+//						Singleton.roundtrip.set(location, a);
 					}
 				}
 			}
@@ -472,6 +474,17 @@ public class Crud {
 		default:
 			break;
 		}
+	}
+	public static void login(){
+		String usu = "";
+		String pass = "";
+		usu = F.askString("Introduce your username");
+		pass = F.askString("Introduce your password");
+		if(usu.equals("admin")&&pass.equals("admin"))
+			Main.exe();
+		else if(usu.equals("reception")&&pass.equals("reception"))
+			MainReception.exe();
+
 	}
 	
 }
